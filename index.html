@@ -2,72 +2,98 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Hotel Nova Inn</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hotel Nova Inn | Luxury Experience</title>
 <link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<nav class="navbar">
+  <div class="logo">Hotel Nova Inn</div>
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#info">About</a></li>
+    <li><a href="#plans">Rooms</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
 <!-- Hero Section -->
-<section id="hero" class="section">
-  <div class="loading">Loading...</div>
+<section id="hero">
+  <div class="loading">Loading Experience...</div>
   <canvas id="heroCanvas"></canvas>
+  <div class="hero-content">
+    <h1>Welcome to Serenity</h1>
+  </div>
 </section>
 
 <!-- Information Section -->
 <section id="info" class="section">
-  <h2>Welcome to Hotel Nova Inn</h2>
-  <p>Experience luxury and comfort in the heart of the city.</p>
+  <div class="container">
+    <h2>Experience Luxury</h2>
+    <p>Discover unmatched comfort in the heart of the city.</p>
+  </div>
 </section>
 
 <!-- Plan Section -->
 <section id="plans" class="section">
-  <h2>Our Rooms</h2>
-  <div class="plan-grid">
-    <div class="plan-card">
-      <h3>Standard</h3>
-      <p>₹1,500/night</p>
-      <ul>
-        <li>AC Service</li>
-        <li>Premium Bedding</li>
-        <li>City View</li>
-      </ul>
-    </div>
-    <div class="plan-card">
-      <h3>Deluxe</h3>
-      <p>₹2,000/night</p>
-      <ul>
-        <li>AC Service</li>
-        <li>Premium Bedding</li>
-        <li>Garden View</li>
-      </ul>
-    </div>
-    <div class="plan-card">
-      <h3>Super Deluxe</h3>
-      <p>₹3,500/night</p>
-      <ul>
-        <li>AC Service</li>
-        <li>Premium Bedding</li>
-        <li>Sea View</li>
-      </ul>
+  <div class="container">
+    <h2>Our Rooms</h2>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <h3>Standard</h3>
+        <p class="price">₹1,500<span>/night</span></p>
+        <ul>
+          <li>AC Service</li>
+          <li>Premium Bedding</li>
+          <li>City View</li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <h3>Deluxe</h3>
+        <p class="price">₹2,000<span>/night</span></p>
+        <ul>
+          <li>AC Service</li>
+          <li>Premium Bedding</li>
+          <li>Garden View</li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <h3>Super Deluxe</h3>
+        <p class="price">₹3,500<span>/night</span></p>
+        <ul>
+          <li>AC Service</li>
+          <li>Premium Bedding</li>
+          <li>Panoramic View</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Map Section -->
 <section id="map" class="section">
-  <h2>Find Us</h2>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d0!3d0!5e0!3m2!1sen!2sin!4v0" frameborder="0" allowfullscreen loading="lazy"></iframe>
-  <a href="https://maps.app.goo.gl/pob6RU9vupPXoExG7" class="locate-btn" target="_blank">Locate Me</a>
+  <div class="container">
+    <h2>Find Us</h2>
+    <div id="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.771216503932!2d77.8435501150495!3d28.415451500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ca10c5289dcd5%3A0x3d337c1529503b13!2sHotel%20Nova%20Inn%20Dm%20Road%20Bulandshahr!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <button id="locateBtn" class="locate-btn">Locate Me</button>
+  </div>
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="section">
-  <h2>Contact Us</h2>
-  <div class="contact-links">
-    <a href="mailto:info@hotelnova.com">Mail</a>
-    <a href="https://wa.me/1234567890">WhatsApp</a>
-    <a href="https://instagram.com/hotelnova" target="_blank">Instagram</a>
+<footer id="contact" class="section">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <div class="contact-links">
+      <a href="mailto:info@hotelnovainn.com">Mail</a>
+      <a href="https://wa.me/91XXXXXXXXXX?text=I'd like to book a room.">WhatsApp</a>
+      <a href="https://instagram.com/hotelnovainn" target="_blank">Instagram</a>
+    </div>
   </div>
-</section>
+</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

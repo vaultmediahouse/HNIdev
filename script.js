@@ -84,4 +84,22 @@
     // draw first frame initially
     drawFrame(0);
   }
+  // Geolocation button
+  const locateBtn = document.getElementById('locateBtn');
+  if (locateBtn) {
+    locateBtn.addEventListener('click', () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+          const { latitude, longitude } = pos.coords;
+          const dest = encodeURIComponent('Hotel Nova Inn Dm Road Bulandshahr');
+          const url = `https://www.google.com/maps/dir/?api=1&origin=${latitude},${longitude}&destination=${dest}&travelmode=driving`;
+          window.open(url, '_blank');
+        }, err => {
+          alert('Unable to retrieve your location.');
+        });
+      } else {
+        alert('Geolocation is not supported by this browser.');
+      }
+    });
+  }
 })();
