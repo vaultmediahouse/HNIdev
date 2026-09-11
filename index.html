@@ -5,92 +5,298 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hotel Nova Inn | Luxury Experience</title>
 <link rel="stylesheet" href="style.css" />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Playfair+Display:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="logo">Hotel Nova Inn</div>
-  <ul>
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#info">About</a></li>
-    <li><a href="#plans">Rooms</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">Hotel Nova Inn</div>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#" class="cta-btn">Book Now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 <!-- Hero Section -->
-<section id="hero">
-  <div class="loading">Loading Experience...</div>
-  <canvas id="heroCanvas"></canvas>
+<section id="hero" class="hero-section">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>Welcome to Serenity</h1>
+    <span class="hero-label">LUXURY HOTEL & RESORT</span>
+    <h1 class="hero-title">THE ART OF EXCEPTIONAL STAYS</h1>
+    <p class="hero-sub">A refined hospitality experience designed around comfort, privacy and unforgettable moments.</p>
+    <a href="#" class="btn-primary">Discover The Hotel</a>
+  </div>
+  <div class="booking-bar" id="bookingBar">
+    <input type="date" placeholder="Check‑in" />
+    <input type="date" placeholder="Check‑out" />
+    <select><option>1 Room</option></select>
+    <select><option>2 Guests</option></select>
+    <button class="btn-primary">Book Now</button>
+  </div>
+  <canvas id="heroCanvas"></canvas>
+  <div class="loading">Loading Experience…</div>
+</section>
+
+<!-- About / Intro Section -->
+<section id="about" class="section intro-section">
+  <div class="container intro-container">
+    <div class="intro-image">
+      <img src="frames/ezgif-frame-001.png" alt="Hotel interior" />
+    </div>
+    <div class="intro-text">
+      <span class="section-label">LUXURY HOTEL & RESORT</span>
+      <h2 class="section-title">A QUIET EXPRESSION OF LUXURY</h2>
+      <p>Experience an elegant blend of sophisticated design, personalized service and timeless charm in every corner of our resort.</p>
+      <div class="stats">
+        <div class="stat-item"><strong>250+</strong><span>Luxury Rooms</span></div>
+        <div class="stat-item"><strong>4.9</strong><span>Guest Rating</span></div>
+        <div class="stat-item"><strong>12K+</strong><span>Happy Guests</span></div>
+      </div>
+      <a href="#rooms" class="btn-secondary">Explore Rooms</a>
+    </div>
   </div>
 </section>
 
-<!-- Information Section -->
-<section id="info" class="section">
+<!-- Rooms Section -->
+<section id="rooms" class="section rooms-section">
   <div class="container">
-    <h2>Experience Luxury</h2>
-    <p>Discover unmatched comfort in the heart of the city.</p>
+    <div class="section-header">
+      <span class="section-label">ROOMS & SUITES</span>
+      <h2 class="section-title">Discover Refined Spaces</h2>
+      <p>Each suite is thoughtfully designed to provide ultimate comfort, privacy and breathtaking views.</p>
+    </div>
+    <div class="rooms-grid">
+      <article class="room-card">
+        <img src="frames/ezgif-frame-001.png" alt="Standard Suite" />
+        <span class="room-label">STANDARD SUITE</span>
+        <h3 class="room-name">Standard</h3>
+        <p class="room-desc">Cozy interiors with modern amenities and city views.</p>
+        <div class="room-meta"><span>2 Guests • King Bed</span></div>
+        <div class="room-price">₹1,500<span>/night</span></div>
+        <a href="#" class="btn-secondary">View Room</a>
+      </article>
+      <article class="room-card">
+        <img src="frames/ezgif-frame-002.png" alt="Deluxe Suite" />
+        <span class="room-label">DELUXE SUITE</span>
+        <h3 class="room-name">Deluxe</h3>
+        <p class="room-desc">Spacious living area with garden vista and premium furnishings.</p>
+        <div class="room-meta"><span>2 Guests • King Bed</span></div>
+        <div class="room-price">₹2,000<span>/night</span></div>
+        <a href="#" class="btn-secondary">View Room</a>
+      </article>
+      <article class="room-card">
+        <img src="frames/ezgif-frame-003.png" alt="Super Deluxe Suite" />
+        <span class="room-label">SUPER DELUXE SUITE</span>
+        <h3 class="room-name">Super Deluxe</h3>
+        <p class="room-desc">Panoramic sea views, exclusive amenities and opulent décor.</p>
+        <div class="room-meta"><span>2 Guests • King Bed</span></div>
+        <div class="room-price">₹3,500<span>/night</span></div>
+        <a href="#" class="btn-secondary">View Room</a>
+      </article>
+    </div>
   </div>
 </section>
 
-<!-- Plan Section -->
-<section id="plans" class="section">
+<!-- Facilities Section -->
+<section id="facilities" class="section facilities-section">
   <div class="container">
-    <h2>Our Rooms</h2>
-    <div class="plan-grid">
-      <div class="plan-card">
-        <h3>Standard</h3>
-        <p class="price">₹1,500<span>/night</span></p>
-        <ul>
-          <li>AC Service</li>
-          <li>Premium Bedding</li>
-          <li>City View</li>
-        </ul>
+    <div class="section-header dark-header">
+      <span class="section-label">FACILITIES</span>
+      <h2 class="section-title">HOTEL'S FACILITIES</h2>
+      <p>World‑class services crafted for your ultimate comfort.</p>
+    </div>
+    <div class="facilities-grid">
+      <div class="facility-item"><span class="facility-number">01</span><span class="facility-name">Room Service</span></div>
+      <div class="facility-item"><span class="facility-number">02</span><span class="facility-name">Wi‑Fi Internet</span></div>
+      <div class="facility-item"><span class="facility-number">03</span><span class="facility-name">Smart Key</span></div>
+      <div class="facility-item"><span class="facility-number">04</span><span class="facility-name">Swimming Pool</span></div>
+      <div class="facility-item"><span class="facility-number">05</span><span class="facility-name">Fitness Center</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Facility Detail Section -->
+<section class="section facility-detail-section">
+  <div class="container">
+    <div class="detail-row">
+      <div class="detail-img"><img src="frames/ezgif-frame-004.png" alt="Fitness" /></div>
+      <div class="detail-text">
+        <span class="section-label">01</span>
+        <h3 class="section-title">FITNESS</h3>
+        <p>State‑of‑the‑art gym equipped with premium machines and personal trainers.</p>
+        <a href="#" class="btn-primary">Explore</a>
       </div>
-      <div class="plan-card">
-        <h3>Deluxe</h3>
-        <p class="price">₹2,000<span>/night</span></p>
-        <ul>
-          <li>AC Service</li>
-          <li>Premium Bedding</li>
-          <li>Garden View</li>
-        </ul>
+    </div>
+    <div class="detail-row reverse">
+      <div class="detail-img"><img src="frames/ezgif-frame-005.png" alt="Pool" /></div>
+      <div class="detail-text">
+        <span class="section-label">02</span>
+        <h3 class="section-title">SWIMMING POOL</h3>
+        <p>Infinity pool with panoramic views, perfect for relaxation.</p>
+        <a href="#" class="btn-primary">Explore</a>
       </div>
-      <div class="plan-card">
-        <h3>Super Deluxe</h3>
-        <p class="price">₹3,500<span>/night</span></p>
-        <ul>
-          <li>AC Service</li>
-          <li>Premium Bedding</li>
-          <li>Panoramic View</li>
-        </ul>
+    </div>
+    <div class="detail-row">
+      <div class="detail-img"><img src="frames/ezgif-frame-006.png" alt="Dining" /></div>
+      <div class="detail-text">
+        <span class="section-label">03</span>
+        <h3 class="section-title">DINING</h3>
+        <p>Signature restaurant offering gourmet cuisine curated by top chefs.</p>
+        <a href="#" class="btn-primary">Explore</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Map Section -->
-<section id="map" class="section">
-  <div class="container">
-    <h2>Find Us</h2>
-    <div id="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.771216503932!2d77.8435501150495!3d28.415451500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ca10c5289dcd5%3A0x3d337c1529503b13!2sHotel%20Nova%20Inn%20Dm%20Road%20Bulandshahr!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<!-- Experience / Manager Section -->
+<section class="section experience-section">
+  <div class="container experience-container">
+    <div class="experience-text">
+      <span class="section-label">THE HOTEL EXPERIENCE</span>
+      <h2 class="section-title">A JOURNEY OF REFINED LIVING</h2>
+      <p>From sunrise to sunset, every moment is curated to exceed expectations.</p>
+      <blockquote>“Hospitality is not just a service, it’s an art.”</blockquote>
+      <div class="manager-profile">
+        <img src="frames/ezgif-frame-007.png" alt="Manager" class="manager-photo" />
+        <div class="manager-info">
+          <strong>John Doe</strong>
+          <span>General Manager</span>
+        </div>
+      </div>
     </div>
-    <button id="locateBtn" class="locate-btn">Locate Me</button>
+    <div class="experience-media">
+      <div class="media-wrapper">
+        <img src="frames/ezgif-frame-008.png" alt="Experience" />
+        <a href="#" class="play-btn"><svg viewBox="0 0 64 64"><polygon points="24,16 48,32 24,48" fill="#B89A62"/></svg></a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Contact Section -->
-<footer id="contact" class="section">
+<!-- Testimonial Section -->
+<section class="section testimonial-section">
   <div class="container">
-    <h2>Contact Us</h2>
-    <div class="contact-links">
-      <a href="mailto:info@hotelnovainn.com">Mail</a>
-      <a href="https://wa.me/91XXXXXXXXXX?text=I'd like to book a room.">WhatsApp</a>
-      <a href="https://instagram.com/hotelnovainn" target="_blank">Instagram</a>
+    <div class="section-header dark-header">
+      <span class="section-label">GUEST EXPERIENCES</span>
+      <h2 class="section-title">TESTIMONIALS</h2>
+      <p>What our distinguished guests say about us.</p>
+    </div>
+    <div class="testimonials-grid">
+      <article class="testimonial-card">
+        <div class="quote-icon">&#8220;</div>
+        <div class="rating">★★★★★</div>
+        <p class="quote">“Exceptional service, beautiful rooms and an unforgettable stay.”</p>
+        <div class="guest-info">
+          <img src="frames/ezgif-frame-009.png" alt="Guest" class="guest-photo" />
+          <div><strong>ALEXANDRA MORGAN</strong><span>Guest</span></div>
+        </div>
+      </article>
+      <article class="testimonial-card">
+        <div class="quote-icon">&#8220;</div>
+        <div class="rating">★★★★★</div>
+        <p class="quote">“A sanctuary of elegance and comfort, truly a home away from home.”</p>
+        <div class="guest-info">
+          <img src="frames/ezgif-frame-010.png" alt="Guest" class="guest-photo" />
+          <div><strong>MICHAEL LEE</strong><span>Guest</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Blog / Journal Section -->
+<section class="section blog-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">LATEST FROM THE JOURNAL</span>
+      <h2 class="section-title">OUR STORIES</h2>
+      <p>Insights, inspirations and moments from our resort.</p>
+    </div>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <img src="frames/ezgif-frame-011.png" alt="Blog 1" />
+        <div class="blog-meta"><span>Nov 12, 2026</span> • <span>Travel</span></div>
+        <h3 class="blog-title">A QUIET WEEKEND IN THE MOUNTAINS</h3>
+      </article>
+      <article class="blog-card">
+        <img src="frames/ezgif-frame-012.png" alt="Blog 2" />
+        <div class="blog-meta"><span>Oct 05, 2026</span> • <span>Cuisine</span></div>
+        <h3 class="blog-title">THE ART OF A PERFECT HOTEL STAY</h3>
+      </article>
+      <article class="blog-card">
+        <img src="frames/ezgif-frame-013.png" alt="Blog 3" />
+        <div class="blog-meta"><span>Sep 20, 2026</span> • <span>Wellness</span></div>
+        <h3 class="blog-title">DINING, WELLNESS & THE MODERN RESORT</h3>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Brand Strip -->
+<section class="brand-strip">
+  <div class="container">
+    <div class="brand-logos">
+      <span class="brand-logo">Partner 1</span>
+      <span class="brand-logo">Partner 2</span>
+      <span class="brand-logo">Partner 3</span>
+      <span class="brand-logo">Partner 4</span>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-section">
+  <div class="container footer-container">
+    <div class="footer-col">
+      <div class="logo">Hotel Nova Inn</div>
+      <p>Elegant luxury in every detail.</p>
+      <p>+91 12345 67890<br/>info@hotelnova.com</p>
+    </div>
+    <div class="footer-col">
+      <h4>Useful Links</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#blog">Journal</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Gallery</h4>
+      <div class="gallery-grid">
+        <img src="frames/ezgif-frame-014.png" alt="Gallery 1" />
+        <img src="frames/ezgif-frame-015.png" alt="Gallery 2" />
+        <img src="frames/ezgif-frame-016.png" alt="Gallery 3" />
+        <img src="frames/ezgif-frame-017.png" alt="Gallery 4" />
+        <img src="frames/ezgif-frame-018.png" alt="Gallery 5" />
+        <img src="frames/ezgif-frame-019.png" alt="Gallery 6" />
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Stay In The Know</h4>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email" required />
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Hotel Nova Inn. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#">IG</a>
+      <a href="#">WP</a>
+      <a href="#">FB</a>
     </div>
   </div>
 </footer>

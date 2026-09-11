@@ -19,25 +19,30 @@
     ctx.scale(dpr, dpr);
   }
   setCanvasSize();
-  window.addEventListener('resize', setCanvasSize);
+  window.addEventListener('resize', () => {
+    setCanvasSize();
+    if (images[currentFrameIndex]) drawFrame(currentFrameIndex);
+  });
 
   // preload images
   const images = [];
   let loaded = 0;
+  let currentFrameIndex = 0;
+
   function imgLoaded() {
     loaded++;
     if (loaded === frameCount) {
-      loadingEl.style.display = 'none';
+      if (loadingEl) loadingEl.style.display = 'none';
       initAnimation();
     }
   }
+
   if (prefersReduced) {
-    // load only first frame
     const img = new Image();
     img.src = `${frameFolder}${filePrefix}001${fileExt}`;
     img.onload = () => {
       images[0] = img;
-      loadingEl.style.display = 'none';
+      if (loadingEl) loadingEl.style.display = 'none';
       drawFrame(0);
     };
   } else {
@@ -53,37 +58,55 @@
   function drawFrame(index) {
     const img = images[index];
     if (!img) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // draw centered
-    const cw = canvas.width / (window.devicePixelRatio || 1);
-    const ch = canvas.height / (window.devicePixelRatio || 1);
-    const iw = img.width;
-    const ih = img.height;
-    const dx = (cw - iw) / 2;
-    const dy = (ch - ih) / 2;
-    ctx.drawImage(img, dx, dy, iw, ih);
+    currentFrameIndex = index;
+    const dpr = window.devicePixelRatio || 1;
+    const cw = canvas.width / dpr;
+    const ch = canvas.height / dpr;
+    ctx.clearRect(0, 0, cw, ch);
+
+    // Cover algorithm
+    const imgRatio = img.width / img.height;
+    const canvasRatio = cw / ch;
+    let drawWidth, drawHeight, dx, dy;
+
+    if (canvasRatio > imgRatio) {
+      drawWidth = cw;
+      drawHeight = cw / imgRatio;
+      dx = 0;
+      dy = (ch - drawHeight) / 2;
+    } else {
+      drawWidth = ch * imgRatio;
+      drawHeight = ch;
+      dx = (cw - drawWidth) / 2;
+      dy = 0;
+    }
+
+    ctx.drawImage(img, dx, dy, drawWidth, drawHeight);
   }
 
   function initAnimation() {
-    gsap.to({frame:0}, {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    gsap.to({frame: 0}, {
       frame: frameCount - 1,
       ease: 'none',
-      onUpdate: function() {
-        drawFrame(Math.round(this.targets()[0].frame));
-      },
       scrollTrigger: {
         trigger: '#hero',
         start: 'top top',
-        end: `+=${frameCount * 5}`,
+        end: `+=${frameCount * 10}`,
         scrub: true,
         pin: true,
         anticipatePin: 1,
-        invalidateOnRefresh: true,
+        onUpdate: self => {
+          const index = Math.round(self.progress * (frameCount - 1));
+          drawFrame(index);
+        }
       }
     });
-    // draw first frame initially
+
     drawFrame(0);
   }
+
   // Geolocation button
   const locateBtn = document.getElementById('locateBtn');
   if (locateBtn) {
@@ -91,11 +114,11 @@
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(pos => {
           const { latitude, longitude } = pos.coords;
-          const dest = encodeURIComponent('Hotel Nova Inn Dm Road Bulandshahr');
-          const url = `https://www.google.com/maps/dir/?api=1&origin=${latitude},${longitude}&destination=${dest}&travelmode=driving`;
+          const url = `https://www.google.com/maps/dir/?api=1&origin=${latitude},${longitude}&destination=Hotel+Nova+Inn+Dm+Road+Bulandshahr&travelmode=driving`;
           window.open(url, '_blank');
-        }, err => {
-          alert('Unable to retrieve your location.');
+        }, () => {
+          alert('Unable to retrieve your location. Directing to hotel map instead.');
+          window.open('https://maps.app.goo.gl/pob6RU9vupPXoExG7', '_blank');
         });
       } else {
         alert('Geolocation is not supported by this browser.');
